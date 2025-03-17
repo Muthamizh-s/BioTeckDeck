@@ -15,62 +15,347 @@
     <title>BioTeckDeck</title>
     
     <!-- Bootstrap 5 -->
+     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #E3F2FD; color: #333; font-family: 'Arial', sans-serif; }
-        .navbar { background-color: #0288D1; }
-        .navbar-brand, .nav-link { color: #FFF !important; }
-        .offcanvas { background-color: #B3E5FC; }
-        .search-bar input { background-color: #E1F5FE; border: 1px solid #0288D1; }
-        .btn-custom { background-color: #0288D1; color: #FFF; border-radius: 20px; }
-        .hero-section { background: linear-gradient(to right, #0288D1, #26C6DA); color: white; padding: 50px 0; }
-        .card-custom { background-color: #B3E5FC; border-radius: 15px; padding: 20px; margin-top: 5px;}
-        .image-grid img { object-fit: cover; width: 100%; height: 150px; border-radius: 10px; }
-        footer { background-color: #0288D1; color: white; padding: 10px; }
-        @media (max-width: 768px) {
-            .hero-section { padding: 30px 0; text-align: center; }
-            .image-grid img { height: 100px; }
-        }
-        .offcanvas {
-    background: linear-gradient(to bottom, #0288D1, #B3E5FC);
+        /* Global Styles */
+body {
+    background: linear-gradient(to right, #E3F2FD, #BBDEFB);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container-custom {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+.container-custom:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(2, 136, 209, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.navbar-brand, .nav-link {
+    color: #FFF !important;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 6px 14px;
+}
+
+/* Sidebar */
+.offcanvas {
+    background: linear-gradient(to bottom, #0288D1, #81D4FA);
     color: white;
     width: 280px;
 }
-
 .offcanvas-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.offcanvas-title {
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(120deg, #0288D1, #26C6DA);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+.hero-section .btn-custom {
+    padding: 15px 32px;
+    font-size: 1.3rem;
+    transition: 0.3s ease-in-out;
+    background-color: #01579B;
+    color: white;
+    border-radius: 12px;
+}
+.hero-section .btn-custom:hover {
+    background-color: #013C74;
+    transform: scale(1.05);
+}
+
+/* Search Bar */
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Input Field */
+.search-bar input {
+    border: 2px solid rgba(2, 136, 209, 0.6);
+    border-radius: 30px;
+    padding: 14px 20px;
+    width: 65%;
+    font-size: 1.1rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Hover Effect */
+.search-bar input:hover {
+    border-color: #01579B;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Focus Effect */
+.search-bar input:focus {
+    border-color: #01579B;
+    box-shadow: 0 8px 18px rgba(2, 136, 209, 0.25);
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.02);
+}
+
+/* Glow Effect on Focus */
+.search-bar input:focus::placeholder {
+    color: rgba(2, 136, 209, 0.7);
+    transition: 0.3s ease-in-out;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .search-bar input {
+        width: 85%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+
+/* Cards */
+.card-custom {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.card-custom:hover {
+    transform: scale(1.07);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Grid */
+.image-grid img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    transition: 0.3s ease-in-out;
+}
+.image-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #0288D1;
+    color: white;
+    padding: 20px 0px 5px 0px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0288D1;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: #01579B;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .card-custom {
+        width: 100%;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .search-bar input {
+        width: 85%;
+    }
+}
+    
+/* Biotechnology Topics Section */
+.container {
+    max-width: 1100px;
+    padding: 15px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.308);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.4s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Title */
+h2.text-primary {
+    font-size: 2.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 12px rgba(2, 136, 209, 0.3);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.search-bar input { background-color: #E1F5FE; border: 1px solid #0288D1; }
+
+.btn-custom { background-color: #0288D1; color: #FFF; border-radius: 20px; padding: 12px; }
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Glowing Border Effect */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 3px;
+    background: linear-gradient(45deg, #0288D1, #26C6DA, #01579B);
+    -webkit-mask: 
+        linear-gradient(white 0 0) content-box, 
+        linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: all 0.5s ease-in-out;
+}
+
+.card:hover::before {
+    transform: scale(1.02);
+}
+
+/* Card Title */
+.card-title {
     font-size: 1.5rem;
+    font-weight: 700;
+    color: #01579B;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
 }
 
-.nav-link {
-    color: white !important;
-    padding: 10px;
+.card-title:hover {
+    color: #0288D1;
+    transform: scale(1.05);
+}
+
+/* Icon Enhancement */
+.card-title::before {
+    font-size: 1.8rem;
+    transition: 0.3s;
+    filter: drop-shadow(0px 0px 6px rgba(2, 136, 209, 0.6));
+}
+
+.card:hover .card-title::before {
+    transform: rotate(10deg);
+}
+
+/* Card Text */
+.card-text {
     font-size: 1.1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    color: #444;
+    line-height: 1.7;
+    transition: 0.3s ease-in-out;
 }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+/* Floating Effect */
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-.btn-close {
-    filter: invert(1);
-}
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
+/* Neon Glow Animation */
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 10px rgba(2, 136, 209, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(2, 136, 209, 0.7); }
+    100% { box-shadow: 0 0 10px rgba(2, 136, 209, 0.3); }
 }
 
-.navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+.card:hover {
+    animation: neonGlow 1.5s infinite alternate;
 }
 
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h2.text-primary {
+        font-size: 1.8rem;
+    }
+    .card-title {
+        font-size: 1.3rem;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+}
 
     </style>
 </head>
@@ -103,10 +388,10 @@
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -130,39 +415,161 @@
 
     
 
-    <!-- Image Grid -->
-    <div class="container-fluid mt-4 image-grid">
-        <div class="row">
-            <div class="col-12">
-                <img src="images/3.jpg">
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-6">
-                <img src="images/2.jpg">
-            </div>
-            <div class="col-6">
-                <img src="images/1.jpg">
-            </div>
-        </div>
-    </div>
+        <!-- Biotechnology Topics Section -->
+        <div class="container mt-5">
+            <h2 class="fw-bold text-center text-primary mb-4">Biotechnology Topics</h2>
+    
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🔬 Definition & Scope of Biotechnology</h4>
+                            <p class="card-text">Biotechnology involves using living organisms and biological systems to develop products that improve health, agriculture, and the environment.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🧬 Basic Biomolecules</h4>
+                            <p class="card-text">The four major biomolecules—carbohydrates, proteins, lipids, and nucleic acids—play essential roles in the structure and function of cells.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🦠 Structure & Function of Cells</h4>
+                            <p class="card-text">Prokaryotic cells (bacteria) lack a nucleus, while eukaryotic cells (plants & animals) have complex organelles for specialized functions.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🧬 Structure of DNA & RNA</h4>
+                            <p class="card-text">DNA stores genetic information, while RNA helps in protein synthesis and gene regulation.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Image Grid -->
-    <div class="container-fluid mt-4 image-grid">
-        <div class="row">
-            <div class="col-12">
-                <img src="images/3.jpg">
+                
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🧪 Genetic Engineering & rDNA Technology</h4>
+                            <p class="card-text">Techniques like CRISPR allow scientists to modify DNA, leading to advancements in medicine, agriculture, and biotechnology.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🧬 Gene Mutation & Its Types</h4>
+                            <p class="card-text">Mutations can be beneficial or harmful, influencing evolution, genetic diseases, and medical treatments.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🌱 Role of Biotechnology in GMOs</h4>
+                            <p class="card-text">Genetically Modified Organisms (GMOs) enhance crop yield, disease resistance, and food quality.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🦠 Microbes in Biotechnology</h4>
+                            <p class="card-text">Microorganisms like bacteria and yeast are used in fermentation, biofuels, and antibiotic production.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🍏 Applications in Food, Medicine & Environment</h4>
+                            <p class="card-text">Biotechnology contributes to food safety, pharmaceuticals, and eco-friendly solutions.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">💉 Vaccines, Antibiotics & Gene Therapy</h4>
+                            <p class="card-text">Vaccines protect against diseases, antibiotics fight infections, and gene therapy treats genetic disorders.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🌾 GM Crops & Plant Tissue Culture</h4>
+                            <p class="card-text">Tissue culture techniques help produce disease-free plants and improve crop productivity.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">⚖ Ethical Concerns in Biotechnology</h4>
+                            <p class="card-text">Biotechnology raises ethical issues like genetic privacy, cloning, and environmental risks.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🎓 Career Prospects in Biotechnology</h4>
+                            <p class="card-text">Career opportunities range from research and pharmaceuticals to agriculture and environmental biotechnology.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">📝 Role of IPR in Biotechnology</h4>
+                            <p class="card-text">Intellectual Property Rights (IPR) protect innovations in biotech, ensuring fair use and investment returns.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🚀 Recent Updates in Biotechnology</h4>
+                            <p class="card-text">Advancements include CRISPR gene editing, lab-grown meat, and synthetic biology.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">🏭 Biotechnology Industry in India</h4>
+                            <p class="card-text">India's biotech sector is growing rapidly, with investments in healthcare, agriculture, and industrial applications.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-6">
-                <img src="images/2.jpg">
-            </div>
-            <div class="col-6">
-                <img src="images/1.jpg">
-            </div>
-        </div>
-    </div>
+    
+
+    
 
     
     <!-- Footer -->
